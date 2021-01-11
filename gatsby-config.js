@@ -6,26 +6,27 @@ module.exports = {
     author: '@gatsbyjs',
   },
   plugins: [
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: 'gatsby-plugin-eslint',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false,
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
@@ -36,7 +37,7 @@ module.exports = {
       options: {
         prettier: {
           patterns: [
-            '**/*.{js,jsx,ts,tsx}',
+            // '**/*.{js,jsx,ts,tsx}',
             '**/*.{css,scss,less}',
             '**/*.{json,json5}',
             '**/*.{graphql}',
