@@ -1,8 +1,17 @@
 import React from 'react';
+import Gallery from './gallery';
+import Price from './price';
+import Contact from './contact';
+import Hero from './hero';
+import Offer from './offer';
 
 const IndexPage = () => (
   <>
-    <h1>test</h1>
+    <Hero />
+    <Offer />
+    <Gallery />
+    <Price />
+    <Contact />
   </>
 );
 
